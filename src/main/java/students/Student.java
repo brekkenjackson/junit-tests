@@ -37,16 +37,11 @@ public class Student {
     }
 
     // returns the average of the students grades
-    public String getGradeAverage() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.HALF_UP);
-        double grades = 0;
-        double total = 0;
-        for (int i = 0; i < this.grades.size(); i++) {
-            total += this.grades.get(i);
-            grades++;
+    public double getGradeAverage() {
+        double sum = 0;
+        for (int grade: this.grades) {
+            sum += grade;
         }
-        grades = total/grades;
-        return df.format(grades);
+        return sum / this.grades.size() ;
     }
 }
